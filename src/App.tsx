@@ -332,9 +332,9 @@ const App: React.FC = () => {
                     <div className="grid grid-cols-2 gap-6">
                       {[
                         { icon: '👥', label: 'Expert Team', value: '15+' },
-                        { icon: '🏆', label: 'Awards Won', value: '25+' },
+                        // { icon: '🏆', label: 'Awards Won', value: '25+' },
                         { icon: '⚡', label: 'Fast Delivery', value: '48h' },
-                        { icon: '⭐', label: 'Client Rating', value: '4.9/5' }
+                        // { icon: '⭐', label: 'Client Rating', value: '4.9/5' }
                       ].map((stat, index) => (
                         <div key={index} className="flex items-center space-x-3">
                           <div className="text-2xl">{stat.icon}</div>
