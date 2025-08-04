@@ -50,32 +50,32 @@
   --card-foreground: #ffffff;
   --popover: #272626;
   --popover-foreground: #ffffff;
-  --primary: #ffff00;
+  --primary: #75a4ec;
   --primary-foreground: #000000;
   --secondary: #272626;
   --secondary-foreground: #ffffff;
   --muted: #272626;
   --muted-foreground: #ffffff;
-  --accent: #ffff00;
+  --accent: #75a4ec;
   --accent-foreground: #000000;
   --destructive: #ef4444;
   --border: #272626;
   --input: #272626;
-  --ring: #ffff00;
-  --chart-1: #ffff00;
+  --ring: #75a4ec;
+  --chart-1: #75a4ec;
   --chart-2: #272626;
   --chart-3: #ffffff;
-  --chart-4: #ffff00;
+  --chart-4: #75a4ec;
   --chart-5: #272626;
   --sidebar: #000000;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #ffff00;
+  --sidebar-primary: #75a4ec;
   --sidebar-primary-foreground: #000000;
   --sidebar-accent: #272626;
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #272626;
-  --sidebar-ring: #ffff00;
-  --vibrant: #e6e678;
+  --sidebar-ring: #75a4ec;
+  --vibrant: #75a4ec;
 }
 
 .dark {
@@ -85,32 +85,32 @@
   --card-foreground: #ffffff;
   --popover: #272626;
   --popover-foreground: #ffffff;
-  --primary: #ffff00;
+  --primary: #75a4ec;
   --primary-foreground: #000000;
   --secondary: #272626;
   --secondary-foreground: #ffffff;
   --muted: #272626;
   --muted-foreground: #ffffff;
-  --accent: #ffff00;
+  --accent: #75a4ec;
   --accent-foreground: #000000;
   --destructive: #ef4444;
   --border: #272626;
   --input: #272626;
-  --ring: #ffff00;
-  --chart-1: #ffff00;
+  --ring: #75a4ec;
+  --chart-1: #75a4ec;
   --chart-2: #272626;
   --chart-3: #ffffff;
-  --chart-4: #ffff00;
+  --chart-4: #75a4ec;
   --chart-5: #272626;
   --sidebar: #000000;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #ffff00;
+  --sidebar-primary: #75a4ec;
   --sidebar-primary-foreground: #000000;
   --sidebar-accent: #272626;
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #272626;
-  --sidebar-ring: #ffff00;
-  --vibrant: #e6e678;
+  --sidebar-ring: #75a4ec;
+  --vibrant: #75a4ec;
 }
 
 @layer base {
@@ -237,7 +237,7 @@
 }
 
 .animate-gradient {
-  background: linear-gradient(-45deg, #000000, #272626, #ffff00, #000000);
+  background: linear-gradient(-45deg, #000000, #272626, #75a4ec, #000000);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
@@ -257,12 +257,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ffff00;
+  background: #75a4ec;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e6e600;
+  background: #75a4ec;
 }
 
 /* Glass morphism effect */
@@ -274,7 +274,7 @@ html {
 
 /* Text gradient */
 .text-gradient {
-  background: linear-gradient(135deg, #ffff00 0%, #ffffff 50%, #ffff00 100%);
+  background: linear-gradient(135deg, #75a4ec 0%, #ffffff 50%, #75a4ec 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
