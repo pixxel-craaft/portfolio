@@ -30,13 +30,13 @@ const App: React.FC = () => {
   }, []);
 
   // Auto-rotate carousel
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 4);
-    }, 4000); // Change slide every 4 seconds
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentSlide((prev) => (prev + 1) % 4);
+  //   }, 4000); // Change slide every 4 seconds
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -51,7 +51,7 @@ const App: React.FC = () => {
     { id: 'home', label: 'Home' },
     { id: 'services', label: 'Services' },
     { id: 'about', label: 'About' },
-    { id: 'portfolio', label: 'Portfolio' },
+    // { id: 'portfolio', label: 'Portfolio' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -62,7 +62,7 @@ const App: React.FC = () => {
         ref={headerRef}
         className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-[#272626]"
       >
-        <div className="container mx-auto px-4 py-4">
+        <div className="container max-w-10/12 mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <motion.div
@@ -96,8 +96,8 @@ const App: React.FC = () => {
 
             {/* CTA Button */}
             <motion.button
-              className="hidden md:block bg-vibrant text-black px-6 py-2 rounded-lg hover:bg-[#e6e600] transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
+              className="hidden cursor-pointer md:block bg-vibrant/90 text-black px-6 py-2 rounded-lg hover:vibrant transition-colors duration-200"
+              whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('contact')}
             >
@@ -169,21 +169,21 @@ const App: React.FC = () => {
             >
               <button
                 onClick={() => scrollToSection('services')}
-                className="bg-vibrant text-black px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#e6e600] transition-all duration-300 hover-lift flex items-center space-x-2"
+                className="bg-vibrant/90 cursor-pointer text-black px-8 py-4 rounded-lg text-lg font-semibold hover:bg-vibrant transition-all duration-300 hover-lift flex items-center space-x-2"
               >
                 <span>Explore Services</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
               <button
                 onClick={() => scrollToSection('portfolio')}
-                className="border-2 border-vibrant text-vibrant px-8 py-4 rounded-lg text-lg font-semibold hover:bg-vibrant hover:text-black transition-all duration-300 hover-lift"
+                className="border-2 cursor-pointer border-vibrant text-vibrant px-8 py-4 rounded-lg text-lg font-semibold hover:bg-vibrant hover:text-black transition-all duration-300 hover-lift"
               >
                 View Portfolio
               </button>
             </motion.div>
 
             {/* Stats */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -200,7 +200,7 @@ const App: React.FC = () => {
                   <div className="text-sm text-white">{stat.label}</div>
                 </div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </section>
@@ -271,10 +271,12 @@ const App: React.FC = () => {
                 viewport={{ once: true }}
                 className="bg-[#272626] border border-[#272626] rounded-xl p-8 hover-lift group shadow-sm"
               >
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+                <div className="flex items-center gap-2">
+                  <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300 -ml-2">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-vibrant mb-4">{service.title}</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-vibrant mb-4">{service.title}</h3>
                 <p className="text-white mb-6">{service.description}</p>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
@@ -416,7 +418,7 @@ const App: React.FC = () => {
               →
             </button>
 
-            <div className="overflow-hidden">
+            <div className="overflow-hidden flex flex-col min-h-[400px] justify-center">
               <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
                 {[
                   {
@@ -444,12 +446,12 @@ const App: React.FC = () => {
                     icon: '📈'
                   }
                 ].map((process, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-4">
+                  <div key={index} className="w-full flex-shrink-0 flex-col px-4">
                     <motion.div
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6 }}
-                      viewport={{ once: true }}
+                      // initial={{ opacity: 0, y: 50 }}
+                      // whileInView={{ opacity: 1, y: 0 }}
+                      // transition={{ duration: 0.6 }}
+                      // viewport={{ once: true }}
                       className="bg-[#272626] border border-[#272626] rounded-xl p-8 hover-lift group relative max-w-2xl mx-auto"
                     >
                       {/* Step Number */}
@@ -562,7 +564,8 @@ const App: React.FC = () => {
                     </div>
                     <div>
                       <div className="font-semibold">Phone</div>
-                      <div className="text-[#D4D4D4]">+1 (555) 123-4567</div>
+                      <div className="text-[#D4D4D4]">+91 9958434018</div>
+                      <div className="text-[#D4D4D4]">+91 9582671770</div>
                     </div>
                   </div>
                 </div>
@@ -581,23 +584,23 @@ const App: React.FC = () => {
                     <input
                       type="text"
                       placeholder="First Name"
-                      className="w-full px-4 py-3 bg-white border border-white/20 rounded-lg text-black placeholder-black/60 focus:outline-none focus:border-black/40 transition-colors duration-300"
+                      className="w-full px-4 py-3 bg-white border border-white/20 rounded-lg text-black placeholder-black focus:outline-none focus:border-black/40 transition-colors duration-300"
                     />
                     <input
                       type="text"
                       placeholder="Last Name"
-                      className="w-full px-4 py-3 bg-white border border-white/20 rounded-lg text-black placeholder-black/60 focus:outline-none focus:border-black/40 transition-colors duration-300"
+                      className="w-full px-4 py-3 bg-white border border-white/20 rounded-lg text-black placeholder-black focus:outline-none focus:border-black/40 transition-colors duration-300"
                     />
                   </div>
                   <input
                     type="email"
                     placeholder="Email Address"
-                    className="w-full px-4 py-3 bg-white border border-white/20 rounded-lg text-black placeholder-black/60 focus:outline-none focus:border-black/40 transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-white border border-white/20 rounded-lg text-black placeholder-black focus:outline-none focus:border-black/40 transition-colors duration-300"
                   />
                   <textarea
                     placeholder="Tell us about your project..."
                     rows={5}
-                    className="w-full px-4 py-3 bg-white border border-white/20 rounded-lg text-black placeholder-black/60 focus:outline-none focus:border-black/40 transition-colors duration-300 resize-none"
+                    className="w-full px-4 py-3 bg-white border border-white/20 rounded-lg text-black placeholder-black focus:outline-none focus:border-black/40 transition-colors duration-300 resize-none"
                   ></textarea>
                   <button
                     type="submit"
@@ -614,8 +617,8 @@ const App: React.FC = () => {
 
       {/* Footer */}
       <footer className="bg-[#000000] text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
+        <div className="container max-w-10/12 mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 {/* <div className="w-8 h-8 bg-gradient-to-br from-vibrant to-[#ffffff] rounded-lg flex items-center justify-center">
@@ -628,8 +631,8 @@ const App: React.FC = () => {
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-white">
+              <h4 className="font-semibold text-end mb-4">Services</h4>
+              <ul className="space-y-2 flex flex-col justify-end items-end text-white">
                 <li>Web Development</li>
                 <li>Digital Marketing</li>
                 <li>Website Maintenance</li>
@@ -637,15 +640,15 @@ const App: React.FC = () => {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-white">
+              <h4 className="font-semibold text-end mb-4">Company</h4>
+              <ul className="space-y-2 flex flex-col justify-end items-end text-white">
                 <li>About Us</li>
                 <li>Portfolio</li>
                 <li>Testimonials</li>
                 <li>Contact</li>
               </ul>
             </div>
-            <div>
+            {/* <div>
               <h4 className="font-semibold mb-4">Newsletter</h4>
               <p className="text-white mb-4">Stay updated with our latest news and offers.</p>
               <div className="flex">
@@ -654,11 +657,11 @@ const App: React.FC = () => {
                   placeholder="Enter your email"
                   className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-l-lg text-white placeholder-white/60 focus:outline-none focus:border-white/40"
                 />
-                <button className="px-4 py-2 bg-vibrant rounded-r-lg hover:bg-[#e6e600] hover:text-black transition-colors duration-300">
+                <button className="px-4 py-2 cursor-pointer bg-vibrant/90 rounded-r-lg hover:bg-vibrant hover:text-black transition-colors duration-300">
                   Subscribe
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="border-t border-white/10 mt-8 pt-8 text-center text-white">
             <p>&copy; 2024 PixelCraft. All rights reserved. | Crafting the Future of the Web</p>
